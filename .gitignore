@@ -1,3 +1,11 @@
 .obsidian
 .trash
 *.tkn
+node_modules/
+dist/
+artifacts/
+test-results/
+playwright-report/
+.browser/
+.release-highlights.md
+RELEASE-NOTES.md
