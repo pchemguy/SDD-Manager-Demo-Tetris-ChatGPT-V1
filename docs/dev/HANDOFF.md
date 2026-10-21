@@ -25,3 +25,7 @@ Preparation merge and sdd-docs-main closure are verified. Active local branch is
 ## Incoming policy synchronization
 
 Merged origin/main policy update 1347474 into the active phase branch. The phase creation parent remains main at 37c8a35822cb9171eb7884a9388ce8a5c0826b79; unfinished T-001 and autonomous scope are preserved. Updated browser policy permits headless-shell coverage, verified official-image extraction and diagnosed process-local Firefox recovery. Resume provisioning under that policy; no task completion is claimed.
+
+## Milestone 1.1 checkpoint
+
+T-001–T-005 complete on phase/1-classic-baseline; see milestone report for exact reviewed source and evidence. Browser provisioning is recovered. Publish this review, reconcile issue #14 and milestone #2, then execute T-006, integrate phase 1 and release v0.1.0. All four phases remain autonomously authorized. Original creation parent and incoming policy merge above remain unchanged.

@@ -5,7 +5,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 ## Phase 1 — Classic baseline
 
 - [ ] Phase 1 — Classic baseline
-    - [ ] Milestone 1.1 — Playable classic game
+    - [x] Milestone 1.1 — Playable classic game
         - [x] T-001 — Establish isolated tooling and piece geometry
             Scope: package/configuration, src/pieces.ts, tests/pieces.test.ts; central browser policy provisioning. Depends on: none.
             Evidence: Seven distinct four-cell types, rotations and board-coordinate fixtures; reproducible isolated Chromium/Firefox provisioning; relevant tests, build and documentation.
@@ -18,7 +18,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-004 — Verify browser delivery and static packaging
             Scope: tests/browser.spec.ts, scripts/package.py, README, AGENTS and build configuration. Depends on: T-003.
             Evidence: Both browser targets, production build, archive inventory/checksum and actual serving guide; relevant tests, build and documentation.
-        - [ ] T-005 — Review, test and report milestone 1.1
+        - [x] T-005 — Review, test and report milestone 1.1
             Depends on: T-001, T-002, T-003, T-004. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/1/1.1.md.
     - [ ] Milestone 1.2 — Phase review
