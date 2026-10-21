@@ -1,75 +1,39 @@
 # Project handoff
 
-Checkpoint: main documentation integration; package QC Ready.
-
-## Workflow and sources
-
-Main development coordinated by sdd-manage; [PROJECT](PROJECT.md), [ARCHITECTURE](ARCHITECTURE.md), [DECOMPOSITION](DECOMPOSITION.md), [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md), [DOCS_TASKS](DOCS_TASKS.md) and [package QC](DOCS-QC-REPORT.md) govern continuation. Use repository SDD Manager 0.15.1 and central root/browser policies. Linux execution host has Node 24, Git and Python 3.12.
+Checkpoint: complete project delivered and all four releases published. Current branch: `main`; no active or suspended implementation work. This documentation-only checkpoint follows verified v1.0.0 publication.
 
 ## Scope and authority
 
-The user approved PROJECT and on 2026-10-21 explicitly preapproved all human checkpoints, authorized fully autonomous delivery of the complete project, and required a GitHub release after each implementation phase. All 19 tasks and four phases are authorized. No further human pause is required within this scope; technical, publication and tracking gates remain mandatory. Standard reporting. Phase releases: 0.1.0, 0.2.0, 0.3.0, 1.0.0.
+The user approved PROJECT, explicitly preapproved all human checkpoints on 2026-10-21, authorized autonomous completion of the entire Tetris scope, and required a versioned release after each phase. All 19 implementation tasks are complete, reviewed, integrated and published. All implementation issues #10–#28 and milestones #2–#9 are closed/read back; preparation issues #1–#9 and milestone #1 were also closed/read back. No additional implementation phase is pending.
 
-## Branches
+[PROJECT](PROJECT.md), [SPEC](SPEC.md), [PLAN](PLAN.md), [TASKS](TASKS.md), [final report](reports/IMPLEMENTATION-REPORT.md) and [README](../../README.md) describe the delivered scope and evidence. Use repository SDD Manager 0.15.1 for future authorized development. Preserve the existing central browser policy.
 
-Working branch: main; preparation source: design-docs/main. Creation parent/integration target: main. Original branch-off: 63efa331490700b2b34b8db6a1fefc389c05387e. No suspended parent.
+## Integration and release provenance
 
-## Next operations
+Preparation began from `63efa331490700b2b34b8db6a1fefc389c05387e` and was explicitly integrated at `37c8a35822cb9171eb7884a9388ce8a5c0826b79`. The user's browser-policy update `1347474` was synchronized into phase 1 at `1eca4f9`, retaining its original creation parent.
 
-DOCS-001–009 are published and their issue closures verified. Verify/publish this two-parent integration, then close/read back sdd-docs-main. These later effects require confirmation from Git/provider on recovery. Then activate phase 1 only, create phase/1-classic-baseline from published main and execute its six tasks. Later phases activate after predecessor integration and release. Continue through final release unless a concrete blocker or newer user instruction intervenes. No gameplay is implemented at this checkpoint.
+| Phase | Original creation parent | Published integration | Release source |
+| --- | --- | --- | --- |
+| 1 classic | 37c8a35822cb9171eb7884a9388ce8a5c0826b79 | fb69e8ca455c821af7c55e2b2bd950a5b276098c | v0.1.0: 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6 |
+| 2 modern | 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6 | a61f27f229b6595bd169551692b0e4d4da9c746f | v0.2.0: c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb |
+| 3 penetrator | c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb | 5a73ac1385b317381efc166ca6ba3200fa3e49a4 | v0.3.0: f358c1efe28725de92eabdfb0cc60f87b5ae9dd3 |
+| 4 persistence | f358c1efe28725de92eabdfb0cc60f87b5ae9dd3 | d3539402e917d354cbf5f5817c15ef7d01d85094 | v1.0.0: b105c918afacc58a6e9b6fe1f6f57a2cd348cf6e |
 
-## Local interruption evidence — T-001
+Every phase integration has two parents. Task completion audits verified each task's result/evidence and initial checkbox in its own published commit. Phase branches are retained. The final release commit body exactly matches the published release notes.
 
-Preparation merge and sdd-docs-main closure are verified. Active local branch is phase/1-classic-baseline, based on 37c8a35822cb9171eb7884a9388ce8a5c0826b79. Phase 1 tracking is verified; no task is complete. T-001 has uncommitted tooling/geometry/test/README changes and blocked browser provisioning, detailed in TASKS. No partial task commit was authorized or made. The published checkpoint remains preparation. All autonomous authority and phase-release instructions remain active; resume T-001 after the environment can supply compliant browser binaries.
+## Published delivery
 
-## Incoming policy synchronization
+[v1.0.0](https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-V1/releases/tag/v1.0.0), release ID 419666065, is published stable and the latest pointer was read back. Both assets were uploaded, provider digests verified, downloaded and hashed:
 
-Merged origin/main policy update 1347474 into the active phase branch. The phase creation parent remains main at 37c8a35822cb9171eb7884a9388ce8a5c0826b79; unfinished T-001 and autonomous scope are preserved. Updated browser policy permits headless-shell coverage, verified official-image extraction and diagnosed process-local Firefox recovery. Resume provisioning under that policy; no task completion is claimed.
+- `tetris.zip`: 8561 bytes; SHA-256 `a266092364257812d10aa0a4d8a1c042e3260676138586b4406e529345da26d5`.
+- `tetris.zip.sha256`: 77 bytes; SHA-256 `ba0a56494983885fce1abb4d40c9f21c3736cc29b0ef6786a9dd2e2f9b17fb6e`.
 
-## Milestone 1.1 checkpoint
+The archive contains built index/JS/CSS, LICENSE, VERSION.json and SERVING.md. Final version rebuild retained the reviewed runtime JS/CSS fingerprints; metadata reads 1.0.0. Earlier release asset bytes were likewise verified before successor activation. Ignored RELEASE-NOTES.md is retained; the workflow-owned internal highlights checkpoint was removed after published-body readback.
 
-T-001–T-005 complete on phase/1-classic-baseline; see milestone report for exact reviewed source and evidence. Browser provisioning is recovered. Publish this review, reconcile issue #14 and milestone #2, then execute T-006, integrate phase 1 and release v0.1.0. All four phases remain autonomously authorized. Original creation parent and incoming policy merge above remain unchanged.
+## Verification and limits
 
-## Phase 1 review checkpoint
+52 deterministic model/settings tests pass. TypeScript/Vite build passes. All 20 development browser scenarios pass, including two real-controller penetrator fixture checks; all 18 public-page scenarios pass against a clean extracted production archive. ZIP integrity, safe unique inventory, checksum, screenshot and Canvas pixels are verified. No unresolved TODO or blocking defect remains.
 
-T-001–T-006 complete. Milestone 1.1 hosted closure verified. Phase report owns acceptance and task audit. Publish T-006, close/read back issue #15 and milestone #3, integrate into refreshed main, publish/read back merge, and release v0.1.0 before phase 2 activation. No release exists yet at this checkpoint.
+Browser execution used project-owned Playwright 1.56.1 Chromium shell 141 and Firefox 142 on Linux. CDN provisioning failures were recovered via a verified matching official image, as recorded in TASKS. This host requires the diagnosed opt-in `TETRIS_FIREFOX_SANDBOX=1` for trusted local Firefox tests. Hidden-page tests model visibility events; no headed OS-window, Windows execution or CI run is claimed. Mobile touch controls and game-state saving are outside scope. README contains setup, serving and configuration instructions.
 
-## Phase 1 integration
-
-Return to main after completed phase 1. Main parent 1347474; incoming 621821c3825e6abab1cf77da0444f905b1bb859c; original phase opening parent 37c8a35. Both phase milestones and all six issues are closed/read back. T-006 actual commit audit confirms its single checkbox plus report/handoff. Merge has no source conflicts; model/build checks below validate merged state. Publish/read back integration, prepare release marker/tag v0.1.0 and verified assets, then activate phase 2.
-
-## Milestone 2.1 checkpoint
-
-Phase 2 branch parent is published release 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6 on main; phase 1 release and downloaded bytes verified. T-007–T-010 complete with 29 model/eight browser checks passing. Publish review, close issue #19 and milestone #4, then T-011, integrate main and release v0.2.0. Full autonomous scope persists.
-
-## Phase 2 review checkpoint
-
-T-007–T-011 complete; milestone #4 closed/read back. Publish review, close issue #20/milestone #5, audit T-011 and integrate main. Release v0.2.0 requires dedicated version commit and rebuilt metadata. Then activate phase 3. Original phase parent remains 18fcdc5; autonomous whole-project authority persists.
-
-## Phase 2 integration
-
-Return to main from phase/2-modern-controls. Receiving parent 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6; incoming 3aa94dfc89708d061743c026bca2cce27caa7a25. Task persistence audit and both milestone closures verified. No source conflict; handoff reconciled. Publish integration, create the planned version release with verified assets, then activate the successor phase if any. Autonomous full scope remains active.
-
-## Milestone 3.1 checkpoint
-
-Phase 3 creation parent c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb (verified v0.2.0). T-012–T-014 complete; publish review and reconcile issue #23/milestone #6, then T-015, integration and release v0.3.0. All implementation authority persists.
-
-## Phase 3 review checkpoint
-
-T-012–T-015 complete. Milestone #6 closed/read back; publish review and close #24/#7, audit T-015, integrate main and release v0.3.0 before final-phase activation. Phase creation parent c7a9afc unchanged. Full autonomous scope and all release instructions persist.
-
-## Phase 3 integration
-
-Return to main from phase/3-penetrator-bonuses. Receiving parent c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb; incoming a3ed5055927125cb769b48db8851c642ec8894ca. Task persistence audit and both milestone closures verified. No source conflict; handoff reconciled. Publish integration, create the planned version release with verified assets, then activate the successor phase if any. Autonomous full scope remains active.
-
-## Milestone 4.1 checkpoint
-
-T-016–T-018 complete on phase/4-configurable-persistent-rules, created from f358c1efe28725de92eabdfb0cc60f87b5ae9dd3 (v0.3.0 release and downloaded hashes verified). All requested behavior is implemented. 52 model/settings and 20 development-browser checks pass. Publish review, close issue #27/milestone #8, then T-019 final package/report/audit, integrate main and release v1.0.0. Full autonomous authority remains active.
-
-## Final implementation review checkpoint
-
-All T-001–T-019 and four phases are complete. Final reports record 52 model/settings tests, 20 development browser checks and 18 production-package checks. Milestone #8 is closed/read back. Publish T-019, close #28/#9, audit the actual closing commit, integrate main, then create/read back v1.0.0 and assets. No implementation task remains; release effects are pending at this checkpoint.
-
-## Phase 4 integration
-
-Return to main from phase/4-configurable-persistent-rules. Receiving parent f358c1efe28725de92eabdfb0cc60f87b5ae9dd3; incoming 421b011889ec7e3b072c3b4a2ac29a885d65512b. Task persistence audit and both milestone closures verified. No source conflict; handoff reconciled. Publish integration, create the planned version release with verified assets, then activate the successor phase if any. Autonomous full scope remains active.
+Stopping boundary: complete authorized project and four releases. No pending implementation, integration, tracking or release action remains.
