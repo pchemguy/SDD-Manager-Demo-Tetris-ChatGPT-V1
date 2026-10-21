@@ -28,22 +28,22 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 2 — Modern controls
 
-- [ ] Phase 2 — Modern controls
-    - [ ] Milestone 2.1 — Modern piece handling
-        - [ ] T-007 — Add seven-bag queue and hold
+- [x] Phase 2 — Modern controls
+    - [x] Milestone 2.1 — Modern piece handling
+        - [x] T-007 — Add seven-bag queue and hold
             Scope: src/game.ts and model tests. Depends on: T-006.
             Evidence: Each bag has all seven types; hold swaps/reset/once-per-lock and blocked spawn; relevant tests, build and documentation.
-        - [ ] T-008 — Implement wall kicks and timed hard drop
+        - [x] T-008 — Implement wall kicks and timed hard drop
             Scope: src/game.ts, src/pieces.ts and model/controller tests. Depends on: T-007.
             Evidence: Ordered kicks, exact grounding timer/reset/pause and hard-drop policies; relevant tests, build and documentation.
-        - [ ] T-009 — Render shared ghost projection and modern controls
+        - [x] T-009 — Render shared ghost projection and modern controls
             Scope: src/render.ts, src/main.ts and browser/model tests. Depends on: T-008.
             Evidence: Ghost equals hard drop, midline rule and visible hold/help integration; relevant tests, build and documentation.
-        - [ ] T-010 — Review, test and report milestone 2.1
+        - [x] T-010 — Review, test and report milestone 2.1
             Depends on: T-007, T-008, T-009. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/2/2.1.md.
-    - [ ] Milestone 2.2 — Phase review
-        - [ ] T-011 — Review, test and report phase 2
+    - [x] Milestone 2.2 — Phase review
+        - [x] T-011 — Review, test and report phase 2
             Depends on: T-010 and milestone 2.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/2/PHASE-REPORT.md.
 
@@ -110,3 +110,15 @@ Both browser scenarios failed on the empty interface before implementation. Both
 ## T-004 evidence
 
 13 model tests, production build and four production-archive browser scenarios pass. ZIP integrity/inventory verified: index, relative JS/CSS, LICENSE, VERSION.json and SERVING.md only; SHA-256 generated. Extracted archive was served with Python and exercised in Chromium/Firefox. Native keyboard/focus and Canvas pixels verified; hidden-page handler tested with modeled visibility events, not a headed OS-window experiment. Browser policy defaults permit headless coverage. Only nonfunctional missing favicon requests and environment npm/color warnings observed. No secrets, dependencies, browser files or source enter the whitelist.
+
+## T-007 evidence
+
+Three new behavioral tests failed before implementation; all 16 model tests and production build now pass. Verified three successive bags, hold guard/retrieval/reset and blocked hold-spawn. Existing classic fixtures now explicitly select their I-piece pose rather than depending on independent random selection. Phase 2 tracking issues #16–#20 and milestones #4/#5 were individually read back after a stale collection response. Phase branch was created from release commit 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6; v0.1.0 publication and both downloaded asset hashes were verified before activation.
+
+## T-008 evidence
+
+Eight new timing/landing/kick assertions failed before implementation (one chronological-equivalence case already passed). All 25 model tests, build and six browser checks now pass. Delayed locking captures a full interval on grounding, retains grounded residuals, cancels in air, freezes on pause and orders deadlines before coincident gravity. Failed-down and immediate hard-drop policies tested. Classic fixtures explicitly select failed mode. Rotation auto-repeat was reproduced in Chromium then fixed; both browser targets verify it. This corrects a baseline input defect identified during phase 2 preparation.
+
+## T-009 evidence
+
+Four ghost tests and the new browser hold scenario failed before implementation. All 29 model tests, production build and eight browser checks pass. Shared landing equality, above/straddling/exact midline cases, native hold guard and hard-drop raster are covered. Screenshot confirms outlined ghost and separate held/next previews. Visibility mode selection UI remains T-016; all three projection modes are modeled now.
