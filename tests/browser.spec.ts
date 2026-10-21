@@ -39,3 +39,26 @@ test('six session controls apply live and retain form focus',async({page})=>{
  await page.getByLabel('General locking policy').selectOption('failed');await page.getByLabel('Hard-drop locking policy').selectOption('immediate');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+test('URL defaults override cookies while omissions survive reload',async({page,context})=>{
+ await context.addCookies([{name:'tetris_ghost',value:'hide',url:'http://127.0.0.1:4173'},{name:'tetris_hold',value:'off',url:'http://127.0.0.1:4173'},{name:'tetris_lock',value:'failed',url:'http://127.0.0.1:4173'}]);
+ await page.goto('/?ghost=show&lock=delay&other=keep#anchor');await expect(page.getByLabel('Ghost visibility')).toHaveValue('show');await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('off');await expect(page.getByLabel('General locking policy')).toHaveValue('delay');
+ let cookies=Object.fromEntries((await context.cookies()).map(c=>[c.name,c.value]));expect(cookies.tetris_ghost).toBe('show');expect(cookies.tetris_lock).toBe('delay');
+ await page.goto('/?other=keep#anchor');await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('off');await expect(page.getByLabel('Ghost visibility')).toHaveValue('show');
+ const selections=[['Ghost visibility','ghost','dynamic'],['Hard drop','hardDrop','off'],['Next-piece preview','preview','off'],['Hard-drop locking policy','hardLock','immediate'],['General locking policy','lock','failed'],['Hold piece','hold','on']];
+ for(const [label,key,value] of selections){await page.getByLabel(label,{exact:true}).selectOption(value);expect(new URL(page.url()).searchParams.get(key)).toBe(value)}
+ expect(new URL(page.url()).searchParams.get('other')).toBe('keep');expect(new URL(page.url()).hash).toBe('#anchor');
+ cookies=Object.fromEntries((await context.cookies()).map(c=>[c.name,c.value]));for(const [,key,value] of selections)expect(cookies['tetris_'+key]).toBe(value);
+ await page.reload();for(const [label,,value] of selections)await expect(page.getByLabel(label,{exact:true})).toHaveValue(value);
+});
+test('invalid and duplicate URL settings fall back independently',async({page,context})=>{
+ await context.addCookies([{name:'tetris_ghost',value:'dynamic',url:'http://127.0.0.1:4173'},{name:'tetris_hardDrop',value:'off',url:'http://127.0.0.1:4173'},{name:'tetris_hold',value:'%E0%A4%A',url:'http://127.0.0.1:4173'}]);
+ await page.goto('/?ghost=hide&ghost=show&hardDrop=BAD&hold=');await expect(page.getByLabel('Ghost visibility')).toHaveValue('dynamic');await expect(page.getByLabel('Hard drop',{exact:true})).toHaveValue('off');await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('on');
+});
+test('blocked cookies warn while in-memory controls and play work',async({page})=>{
+ await page.addInitScript(()=>Object.defineProperty(document,'cookie',{configurable:true,get:()=>'',set:()=>{}}));await page.goto('/?ghost=hide');await expect(page.getByRole('alert')).toContainText('could not be saved');await expect(page.getByLabel('Ghost visibility')).toHaveValue('hide');await page.getByLabel('Ghost visibility').selectOption('show');await expect(page.getByLabel('Ghost visibility')).toHaveValue('show');await page.getByRole('application',{name:'Tetris board'}).focus();await page.keyboard.press('Escape');await expect(page.getByTestId('status')).toHaveText('Paused');
+});
+test('ghost preference changes actual landing pixels',async({page})=>{
+ await page.addInitScript(()=>{Math.random=()=>0.5});await page.goto('/?ghost=show');const board=page.getByRole('application',{name:'Tetris board'});
+ const outline=()=>board.evaluate((e:HTMLCanvasElement)=>{const d=e.getContext('2d')!.getImageData(0,500,300,100).data;let count=0;for(let i=0;i<d.length;i+=4)if(d[i]+d[i+1]+d[i+2]>150)count++;return count});
+ expect(await outline()).toBeGreaterThan(50);await page.getByLabel('Ghost visibility').selectOption('hide');expect(await outline()).toBe(0);await page.getByLabel('Ghost visibility').selectOption('dynamic');expect(await outline()).toBeGreaterThan(50);
+});
