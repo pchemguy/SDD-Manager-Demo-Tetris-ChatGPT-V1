@@ -68,3 +68,9 @@ On 2026-10-21, the user accepted the proposed TypeScript/Canvas/HTML direction, 
 - Visibility/control toggles apply immediately; changes to locking policies apply to the next piece.
 
 The complete user scope includes the classic baseline, all modern enhancements, conditional ghost visibility, penetrator bonuses, six settings and independent URL > cookie > default precedence. Every valid explicit URL value updates its cookie, including default-valued inputs; omitted parameters retain cookies. Player changes update both the corresponding cookie and URL parameter.
+
+## PROJECT proposal review
+
+DOCS-001 completion and issue #1 closure were verified before PROJECT authoring. Initialization was published in `1e87558358959c3b00dba3642b19352476481a63`; `f65d1c0e769dd9c3584a84371c8dcea72185899b` restores the two pre-existing ignore rules while retaining credential exclusion. Both commits have verified remote readback.
+
+PROJECT proposal: reviewed against the complete user request and accepted clarification. The brief covers the classic baseline, modern controls, penetrator award/cap/activation/rendering/landing, all six configuration options, and independent cookie/URL precedence and synchronization. It retains accepted gameplay constraints and identifies exact behavioral details for later design and SPEC. Root README describes preparation status and links the project, workflow, disclosure and usage records. Mobile touch is a proposed exclusion for acceptance with this brief. No blocking scope inconsistency was found. DOCS-002 remains unchecked and issue #2 remains open pending first human approval; ARCHITECTURE must wait.
