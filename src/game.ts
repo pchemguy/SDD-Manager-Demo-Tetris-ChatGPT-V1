@@ -1,6 +1,6 @@
 import { cells, kinds, type Kind } from './pieces';
 export type Piece = { kind: Kind; rotation: number; x: number; y: number };
-export type Rules={lock:'failed'|'delay';hardLock:'general'|'immediate'};
+export type Rules={lock:'failed'|'delay';hardLock:'general'|'immediate';hold?:'off'|'on';hardDrop?:'off'|'on'};
 export type Board = (Kind | 'P' | null)[][];
 const emptyBoard = (): Board => Array.from({ length: 20 }, () => Array(10).fill(null));
 /** Deterministic session model. The caller supplies elapsed milliseconds and optional RNG. */
@@ -12,7 +12,7 @@ export class Game {
   holdUsed = false;
   private bag: Kind[] = [];
   hold() {
-    if (this.paused || this.over || this.holdUsed || this.penetrator) return false;
+    if (this.paused || this.over || this.rules.hold === 'off' || this.holdUsed || this.penetrator) return false;
     const previous = this.held;
     this.held = this.active.kind;
     this.spawn(previous ?? undefined);
@@ -56,7 +56,7 @@ export class Game {
     return target;
   }
   hardDrop() {
-    if (this.paused || this.over) return false;
+    if (this.paused || this.over || this.rules.hardDrop === 'off') return false;
     const target = this.landing();
     if (!target) return false;
     this.active = target; this.syncGround();

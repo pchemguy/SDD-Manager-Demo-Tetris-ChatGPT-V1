@@ -29,3 +29,13 @@ test('hold and hard drop are keyboard playable',async({page})=>{
  const held=await page.getByTestId('held-name').textContent();await page.keyboard.press('c');await expect(page.getByTestId('held-name')).toHaveText(held!);
  await page.keyboard.press('Enter');const bottom=await board.evaluate((e:HTMLCanvasElement)=>{const d=e.getContext('2d')!.getImageData(0,500,300,100).data;let n=0;for(let i=0;i<d.length;i+=4)if(d[i]+d[i+1]+d[i+2]>350)n++;return n});expect(bottom).toBeGreaterThan(1000);
 });
+test('six session controls apply live and retain form focus',async({page})=>{
+ await page.goto('/');await expect(page.getByRole('combobox')).toHaveCount(6);
+ await page.getByLabel('Next-piece preview').selectOption('off');await expect(page.getByLabel('Next piece',{exact:true})).toBeHidden();
+ await page.getByLabel('Hold piece',{exact:true}).selectOption('off');await page.getByLabel('Hard drop',{exact:true}).selectOption('off');
+ const board=page.getByRole('application',{name:'Tetris board'});await board.focus();await page.keyboard.press('c');await expect(page.getByTestId('held-name')).toHaveText('Empty');
+ const before=await board.evaluate((e:HTMLCanvasElement)=>e.toDataURL());await page.keyboard.press('Enter');expect(await board.evaluate((e:HTMLCanvasElement)=>e.toDataURL())).toBe(before);
+ const ghost=page.getByLabel('Ghost visibility');await ghost.selectOption('hide');await ghost.focus();await page.keyboard.press('ArrowDown');await expect(ghost).toBeFocused();await expect(page.getByTestId('status')).toHaveText('Playing');
+ await page.getByLabel('General locking policy').selectOption('failed');await page.getByLabel('Hard-drop locking policy').selectOption('immediate');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
