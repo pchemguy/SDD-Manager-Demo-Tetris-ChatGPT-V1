@@ -33,7 +33,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-007 — Add seven-bag queue and hold
             Scope: src/game.ts and model tests. Depends on: T-006.
             Evidence: Each bag has all seven types; hold swaps/reset/once-per-lock and blocked spawn; relevant tests, build and documentation.
-        - [ ] T-008 — Implement wall kicks and timed hard drop
+        - [x] T-008 — Implement wall kicks and timed hard drop
             Scope: src/game.ts, src/pieces.ts and model/controller tests. Depends on: T-007.
             Evidence: Ordered kicks, exact grounding timer/reset/pause and hard-drop policies; relevant tests, build and documentation.
         - [ ] T-009 — Render shared ghost projection and modern controls
@@ -114,3 +114,7 @@ Both browser scenarios failed on the empty interface before implementation. Both
 ## T-007 evidence
 
 Three new behavioral tests failed before implementation; all 16 model tests and production build now pass. Verified three successive bags, hold guard/retrieval/reset and blocked hold-spawn. Existing classic fixtures now explicitly select their I-piece pose rather than depending on independent random selection. Phase 2 tracking issues #16–#20 and milestones #4/#5 were individually read back after a stale collection response. Phase branch was created from release commit 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6; v0.1.0 publication and both downloaded asset hashes were verified before activation.
+
+## T-008 evidence
+
+Eight new timing/landing/kick assertions failed before implementation (one chronological-equivalence case already passed). All 25 model tests, build and six browser checks now pass. Delayed locking captures a full interval on grounding, retains grounded residuals, cancels in air, freezes on pause and orders deadlines before coincident gravity. Failed-down and immediate hard-drop policies tested. Classic fixtures explicitly select failed mode. Rotation auto-repeat was reproduced in Chromium then fixed; both browser targets verify it. This corrects a baseline input defect identified during phase 2 preparation.

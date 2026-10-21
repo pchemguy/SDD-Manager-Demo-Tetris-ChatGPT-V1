@@ -20,3 +20,7 @@ test('controls stay scoped and hidden-page handler pauses',async({page})=>{
  await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'))});
  await expect(page.getByTestId('status')).toHaveText('Paused');await board.focus();await page.keyboard.press('Escape');await expect(page.getByTestId('status')).toHaveText('Playing');
 });
+test('rotation ignores auto-repeat',async({page})=>{
+ await page.addInitScript(()=>{Math.random=()=>0.5});await page.goto('/');const board=page.getByRole('application',{name:'Tetris board'});await board.focus();
+ const before=await board.evaluate((e:HTMLCanvasElement)=>e.toDataURL());await board.dispatchEvent('keydown',{key:'ArrowUp',repeat:true});expect(await board.evaluate((e:HTMLCanvasElement)=>e.toDataURL())).toBe(before);
+});

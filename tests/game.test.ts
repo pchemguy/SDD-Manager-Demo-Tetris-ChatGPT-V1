@@ -1,10 +1,10 @@
 import {describe,it,expect} from 'vitest';
 import {Game} from '../src/game';
 import {cells} from '../src/pieces';
-const game=()=>{const g=new Game(()=>0);g.active.kind='I';g.next='I';return g};
+const game=()=>{const g=new Game(()=>0,{lock:'failed',hardLock:'general'});g.active.kind='I';g.next='I';return g};
 describe('classic session',()=>{
  it('moves within bounds and respects occupied cells',()=>{const g=game();expect(g.move(-1)).toBe(true);for(let i=0;i<20;i++)g.move(-1);expect(g.active.x).toBe(0);g.board[1][4]='O';expect(g.move(1)).toBe(false)});
- it('rotates clockwise only when valid',()=>{const g=game();expect(g.rotate()).toBe(true);expect(g.active.rotation).toBe(1);g.active.y=17;expect(g.rotate()).toBe(true);expect(g.rotate()).toBe(false)});
+ it('rotates clockwise only when valid',()=>{const g=game();expect(g.rotate()).toBe(true);expect(g.active.rotation).toBe(1);g.active.y=17;expect(g.rotate()).toBe(true);expect(g.rotate()).toBe(true);g.board=Array.from({length:20},()=>Array(10).fill('O'));expect(g.rotate()).toBe(false)});
  it('advances at exact gravity boundaries and locks on failed down',()=>{const g=game();g.tick(999);expect(g.active.y).toBe(0);g.tick(1);expect(g.active.y).toBe(1);g.active.y=18;expect(g.down()).toBe(false);expect(g.board[19].filter(Boolean)).toHaveLength(4);expect(g.active.y).toBe(0)});
  it('compacts lines and scores at the pre-clear level',()=>{const g=game();g.lines=9;g.board[19]=Array(10).fill('O');for(let x=3;x<7;x++)g.board[19][x]=null;g.active.y=18;g.down();expect(g.lines).toBe(10);expect(g.score).toBe(100);expect(g.level).toBe(2);expect(g.board.flat().filter(Boolean)).toHaveLength(0)});
  it.each([2,3,4])('scores %i simultaneous lines',n=>{const g=game();g.active={kind:'I',rotation:1,x:3,y:16};for(let y=20-n;y<20;y++){g.board[y]=Array(10).fill('O');g.board[y][5]=null}g.down();expect(g.lines).toBe(n);expect(g.score).toBe([0,100,300,500,800][n]);expect(g.board.flat().filter(Boolean)).toHaveLength(4-n)});
