@@ -4,25 +4,25 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 1 — Classic baseline
 
-- [ ] Phase 1 — Classic baseline
-    - [ ] Milestone 1.1 — Playable classic game
-        - [ ] T-001 — Establish isolated tooling and piece geometry
+- [x] Phase 1 — Classic baseline
+    - [x] Milestone 1.1 — Playable classic game
+        - [x] T-001 — Establish isolated tooling and piece geometry
             Scope: package/configuration, src/pieces.ts, tests/pieces.test.ts; central browser policy provisioning. Depends on: none.
             Evidence: Seven distinct four-cell types, rotations and board-coordinate fixtures; reproducible isolated Chromium/Firefox provisioning; relevant tests, build and documentation.
-        - [ ] T-002 — Implement classic session rules
+        - [x] T-002 — Implement classic session rules
             Scope: src/game.ts and tests/game.test.ts. Depends on: T-001.
             Evidence: Movement/collision, gravity, failed-down locking, line compaction/scoring, level, pause, restart and game over; relevant tests, build and documentation.
-        - [ ] T-003 — Build the playable browser interface
+        - [x] T-003 — Build the playable browser interface
             Scope: index.html, src/main.ts, src/render.ts, src/style.css and browser tests. Depends on: T-002.
             Evidence: Native keyboard play, Canvas output, preview/status, focus, pause/restart and 1280×800 layout; relevant tests, build and documentation.
-        - [ ] T-004 — Verify browser delivery and static packaging
+        - [x] T-004 — Verify browser delivery and static packaging
             Scope: tests/browser.spec.ts, scripts/package.py, README, AGENTS and build configuration. Depends on: T-003.
             Evidence: Both browser targets, production build, archive inventory/checksum and actual serving guide; relevant tests, build and documentation.
-        - [ ] T-005 — Review, test and report milestone 1.1
+        - [x] T-005 — Review, test and report milestone 1.1
             Depends on: T-001, T-002, T-003, T-004. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/1/1.1.md.
-    - [ ] Milestone 1.2 — Phase review
-        - [ ] T-006 — Review, test and report phase 1
+    - [x] Milestone 1.2 — Phase review
+        - [x] T-006 — Review, test and report phase 1
             Depends on: T-005 and milestone 1.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/1/PHASE-REPORT.md.
 
@@ -82,3 +82,31 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [ ] T-019 — Review, test and report phase 4
             Depends on: T-018 and milestone 4.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/4/PHASE-REPORT.md. Include docs/dev/reports/IMPLEMENTATION-REPORT.md with final TODO aggregation.
+
+## T-001 in progress — provisioning blocked
+
+Working branch: `phase/1-classic-baseline`, created from published preparation merge `37c8a35822cb9171eb7884a9388ce8a5c0826b79`. Phase 1 label, milestones 2/3 and task issues #10–#15 were verified before task edits. T-001 remains unchecked; no implementation task is complete.
+
+Tooling and geometry are pending local changes. Observed RED: two geometry assertions failed against the empty-cell stub; GREEN: all three geometry tests passed and TypeScript checking passed. Dependencies installed successfully. Node 24.19.0, npm 11.9.0 and Python 3.12.14 are available.
+
+Browser provisioning failed with both the initially resolved Playwright build (Chromium 1248) and exact Playwright 1.56.1 (Chromium 1194). The current package lock pins 1.56.1. The CDN returned HTML titled Site Unavailable instead of a ZIP; the official Microsoft fallback returned HTTP 503. Installer retries also reported a stale directory lock. The host rejected escalated execution because sandbox approvals are disabled. No compatible browser executables or archives were found in the supplied primary runtime. No system/personal browser was used. Firefox provisioning and all browser execution remain unverified.
+
+Do not mark this task complete or begin T-002 until compliant isolated Chromium/Firefox provisioning and representative launch evidence succeed. Preserve these pending files; no partial task commit or release has been created. Resume with the pinned runner and central browser policy, reconciling failed-install process/lock state before retry.
+
+## T-001 completion evidence
+
+Recovered on 2026-10-21 under updated browser policy. Pinned Playwright 1.56.1; official image `mcr.microsoft.com/playwright:v1.56.1-noble`, linux/amd64 manifest `sha256:42f02d323c310069b4d54c94bd91a608966a486c3492c48ae0b1cea747ec5ca2`. Manifest/config sizes and SHA-256 verified. Config history locates the sole browser-creating layer; layer size 786741920 and SHA-256 `44acc34a5cf7569816f1cbd047c04ba06ad8face9b0707ca096e78a7d1b856f3` verified before extraction. Extracted only managed shell 1194, Firefox 1495 and FFmpeg 1011 into the absolute project `.browser` directory. Traversal/special entries rejected; selected entries were regular files/directories, no links or whiteouts; executable modes preserved. No later layers modify them. Host executable dependencies resolve.
+
+Independent Firefox GET diagnostics also returned 195-byte HTML (200 text/html), official fallback 503. Chromium 141.0.7390.37 headless shell passed two isolated context/page/click/Canvas-pixel/screenshot/teardown cycles. Firefox 142.0.1 initially stalled creating a page with `uid_map: EPERM`; 30-second whole-process timeout closed the browser and cleaned its profile. Process-local `MOZ_DISABLE_CONTENT_SANDBOX=1` then passed both cycles and clean exit. Config gates this trusted-local-only workaround behind `TETRIS_FIREFOX_SANDBOX=1`. Browser logs contain nonfatal graphics/service warnings; application acceptance is reserved for T-003/T-004. No global browser/security setting changed. Geometry RED/GREEN evidence above remains valid; final three model tests and TypeScript check passed. Full Vite build awaits T-003 entry point.
+
+## T-002 evidence
+
+Observed seven behavior failures against inert model methods before implementation. Final 13 tests pass, including all clear counts, pre-clear scoring, bounds/collisions, rotation, chronological gravity, pause/restart and blocked spawn. TypeScript check passes. Corrected a rotation fixture to y=17 so its intended intermediate pose fits the board. Model owns no DOM/time source; optional RNG enables deterministic scenarios. Browser integration remains T-003.
+
+## T-003 evidence
+
+Both browser scenarios failed on the empty interface before implementation. Both now pass native focused keyboard movement, pause stability, restart/focus, rendered Canvas pixels and 1280×800 overflow checks through the actual Vite server. Production build passes. Screenshot inspection confirms readable controls, visible colored cells and board/sidebar layout. Visibility handler pauses on hiding; native hidden-tab coverage follows in T-004. No OS-window focus claim.
+
+## T-004 evidence
+
+13 model tests, production build and four production-archive browser scenarios pass. ZIP integrity/inventory verified: index, relative JS/CSS, LICENSE, VERSION.json and SERVING.md only; SHA-256 generated. Extracted archive was served with Python and exercised in Chromium/Firefox. Native keyboard/focus and Canvas pixels verified; hidden-page handler tested with modeled visibility events, not a headed OS-window experiment. Browser policy defaults permit headless coverage. Only nonfunctional missing favicon requests and environment npm/color warnings observed. No secrets, dependencies, browser files or source enter the whitelist.

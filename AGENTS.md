@@ -43,3 +43,7 @@ Follow `sdd-manage`'s preparation and phase-activation workflows for required tr
 ## Project guidance
 
 Maintain project-specific navigation and validated setup/check commands here as they become established. Do not invent commands, paths, requirements or completion claims.
+
+## Validated project commands
+
+Use `npm ci`, `npm test`, `npm run build`, `npm run test:browser` and `npm run package`. Source modules live in `src`; deterministic tests and browser scenarios live in `tests`. Browser binaries remain in ignored `.browser`; follow the central browser policy and README for setup and the explicitly gated Firefox workaround. Packaging whitelists built runtime assets plus license/serving/version files. Never include tokens or browser binaries.

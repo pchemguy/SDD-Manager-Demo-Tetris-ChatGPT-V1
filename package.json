@@ -1,0 +1,1 @@
+{"name":"browser-tetris","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"tsc --noEmit && vite build","test":"vitest run","test:browser":"playwright test","package":"python3 scripts/package.py"},"devDependencies":{"@playwright/test":"1.56.1","typescript":"^5.9.3","vite":"^7.1.12","vitest":"^3.2.4"}}

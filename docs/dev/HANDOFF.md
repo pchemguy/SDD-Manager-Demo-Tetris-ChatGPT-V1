@@ -17,3 +17,23 @@ Working branch: main; preparation source: design-docs/main. Creation parent/inte
 ## Next operations
 
 DOCS-001–009 are published and their issue closures verified. Verify/publish this two-parent integration, then close/read back sdd-docs-main. These later effects require confirmation from Git/provider on recovery. Then activate phase 1 only, create phase/1-classic-baseline from published main and execute its six tasks. Later phases activate after predecessor integration and release. Continue through final release unless a concrete blocker or newer user instruction intervenes. No gameplay is implemented at this checkpoint.
+
+## Local interruption evidence — T-001
+
+Preparation merge and sdd-docs-main closure are verified. Active local branch is phase/1-classic-baseline, based on 37c8a35822cb9171eb7884a9388ce8a5c0826b79. Phase 1 tracking is verified; no task is complete. T-001 has uncommitted tooling/geometry/test/README changes and blocked browser provisioning, detailed in TASKS. No partial task commit was authorized or made. The published checkpoint remains preparation. All autonomous authority and phase-release instructions remain active; resume T-001 after the environment can supply compliant browser binaries.
+
+## Incoming policy synchronization
+
+Merged origin/main policy update 1347474 into the active phase branch. The phase creation parent remains main at 37c8a35822cb9171eb7884a9388ce8a5c0826b79; unfinished T-001 and autonomous scope are preserved. Updated browser policy permits headless-shell coverage, verified official-image extraction and diagnosed process-local Firefox recovery. Resume provisioning under that policy; no task completion is claimed.
+
+## Milestone 1.1 checkpoint
+
+T-001–T-005 complete on phase/1-classic-baseline; see milestone report for exact reviewed source and evidence. Browser provisioning is recovered. Publish this review, reconcile issue #14 and milestone #2, then execute T-006, integrate phase 1 and release v0.1.0. All four phases remain autonomously authorized. Original creation parent and incoming policy merge above remain unchanged.
+
+## Phase 1 review checkpoint
+
+T-001–T-006 complete. Milestone 1.1 hosted closure verified. Phase report owns acceptance and task audit. Publish T-006, close/read back issue #15 and milestone #3, integrate into refreshed main, publish/read back merge, and release v0.1.0 before phase 2 activation. No release exists yet at this checkpoint.
+
+## Phase 1 integration
+
+Return to main after completed phase 1. Main parent 1347474; incoming 621821c3825e6abab1cf77da0444f905b1bb859c; original phase opening parent 37c8a35. Both phase milestones and all six issues are closed/read back. T-006 actual commit audit confirms its single checkbox plus report/handoff. Merge has no source conflicts; model/build checks below validate merged state. Publish/read back integration, prepare release marker/tag v0.1.0 and verified assets, then activate phase 2.
