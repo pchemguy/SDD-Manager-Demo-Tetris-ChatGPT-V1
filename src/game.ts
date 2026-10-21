@@ -1,7 +1,7 @@
 import { cells, kinds, type Kind } from './pieces';
 export type Piece = { kind: Kind; rotation: number; x: number; y: number };
 export type Rules={lock:'failed'|'delay';hardLock:'general'|'immediate'};
-export type Board = (Kind | null)[][];
+export type Board = (Kind | 'P' | null)[][];
 const emptyBoard = (): Board => Array.from({ length: 20 }, () => Array(10).fill(null));
 /** Deterministic session model. The caller supplies elapsed milliseconds and optional RNG. */
 export class Game {
@@ -12,11 +12,18 @@ export class Game {
   holdUsed = false;
   private bag: Kind[] = [];
   hold() {
-    if (this.paused || this.over || this.holdUsed) return false;
+    if (this.paused || this.over || this.holdUsed || this.penetrator) return false;
     const previous = this.held;
     this.held = this.active.kind;
     this.spawn(previous ?? undefined);
     this.holdUsed = true;
+    return true;
+  }
+  bonuses = 0;
+  penetrator = false;
+  activate() {
+    if (this.paused || this.over || this.penetrator || this.bonuses === 0) return false;
+    this.bonuses--; this.penetrator = true; this.syncGround();
     return true;
   }
   score = 0;
@@ -26,8 +33,17 @@ export class Game {
   private elapsed = 0;
   private lockRemaining: number | null = null;
   private pieceRules!: Rules;
-  /** Shared normal landing search; blockers stop the descent. */
+  /** One landing query owns both ghost and hard drop, including penetrator transit. */
   landing(piece = this.active): Piece | null {
+    if (this.penetrator) {
+      if (!this.inBounds(piece)) return null;
+      let deepest: Piece | null = null;
+      for (let y = piece.y; y < 20; y++) {
+        const candidate = { ...piece, y };
+        if (this.valid(candidate)) deepest = candidate;
+      }
+      return deepest;
+    }
     if (!this.valid(piece)) return null;
     let target = { ...piece };
     while (this.valid({ ...target, y: target.y + 1 })) target.y++;
@@ -48,7 +64,7 @@ export class Game {
     return true;
   }
   private syncGround() {
-    if (this.pieceRules.lock !== 'delay' || this.valid({ ...this.active, y: this.active.y + 1 })) {
+    if (this.pieceRules.lock !== 'delay' || this.canDescend()) {
       this.lockRemaining = null;
     } else if (this.lockRemaining === null) this.lockRemaining = this.interval;
   }
@@ -68,18 +84,26 @@ export class Game {
   coordinates(piece = this.active): [number, number][] {
     return cells(piece.kind, piece.rotation).map(([x, y]) => [x + piece.x, y + piece.y]);
   }
+  private inBounds(piece: Piece) {
+    return this.coordinates(piece).every(([x,y]) => x >= 0 && x < 10 && y >= 0 && y < 20);
+  }
+  private canDescend() {
+    return this.penetrator ? (this.landing()?.y ?? this.active.y) > this.active.y
+      : this.valid({ ...this.active, y: this.active.y + 1 });
+  }
   valid(piece: Piece): boolean {
     return this.coordinates(piece).every(([x, y]) => x >= 0 && x < 10 && y >= 0 && y < 20 && !this.board[y][x]);
   }
   private spawn(kind?: Kind) {
     this.active = { kind: kind ?? this.next, rotation: 0, x: 3, y: 0 };
     if (!kind) this.next = this.draw();
+    this.penetrator = false;
     this.elapsed = 0; this.lockRemaining = null; this.pieceRules = { ...this.rules };
     this.over = !this.valid(this.active);
     if (!this.over) this.syncGround();
   }
   private attempt(piece: Piece) {
-    if (this.paused || this.over || !this.valid(piece)) return false;
+    if (this.paused || this.over || !(this.penetrator ? this.inBounds(piece) && this.landing(piece) !== null : this.valid(piece))) return false;
     this.active = piece; this.syncGround();
     return true;
   }
@@ -93,17 +117,19 @@ export class Game {
   }
   down() {
     if (this.paused || this.over) return false;
-    if (this.attempt({ ...this.active, y: this.active.y + 1 })) return true;
+    if (this.canDescend() && this.attempt({ ...this.active, y: this.active.y + 1 })) return true;
     if (this.pieceRules.lock === 'failed') this.lock();
     else this.syncGround();
     return false;
   }
   private lock() {
-    for (const [x, y] of this.coordinates()) this.board[y][x] = this.active.kind;
+    if (!this.valid(this.active)) { this.over = true; return; }
+    for (const [x, y] of this.coordinates()) this.board[y][x] = this.penetrator ? 'P' : this.active.kind;
     const remaining = this.board.filter(row => row.some(cell => !cell));
     const cleared = 20 - remaining.length;
     this.score += [0, 100, 300, 500, 800][cleared] * this.level;
     this.lines += cleared;
+    if (cleared === 4) this.bonuses = Math.min(3, this.bonuses + 1);
     this.board = [...Array.from({ length: cleared }, () => Array(10).fill(null)), ...remaining];
     this.holdUsed = false;
     this.spawn();
@@ -124,6 +150,7 @@ export class Game {
   pause() { if (!this.over) this.paused = !this.paused; }
   restart() {
     this.board = emptyBoard(); this.score = 0; this.lines = 0; this.paused = false; this.over = false;
+    this.bonuses = 0; this.penetrator = false;
     this.bag = []; this.held = null; this.holdUsed = false;
     this.next = this.draw(); this.spawn();
   }

@@ -51,7 +51,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 - [ ] Phase 3 — Penetrator bonuses
     - [ ] Milestone 3.1 — Penetrating pieces
-        - [ ] T-012 — Implement penetrator resources and transit
+        - [x] T-012 — Implement penetrator resources and transit
             Scope: src/game.ts and model tests. Depends on: T-011.
             Evidence: Four-line award/cap, single consumption, hold restriction, lowest valid landing and no overlap lock; relevant tests, build and documentation.
         - [ ] T-013 — Integrate penetrator presentation and controls
@@ -122,3 +122,7 @@ Eight new timing/landing/kick assertions failed before implementation (one chron
 ## T-009 evidence
 
 Four ghost tests and the new browser hold scenario failed before implementation. All 29 model tests, production build and eight browser checks pass. Shared landing equality, above/straddling/exact midline cases, native hold guard and hard-drop raster are covered. Screenshot confirms outlined ghost and separate held/next previews. Visibility mode selection UI remains T-016; all three projection modes are modeled now.
+
+## T-012 evidence
+
+Four new behavioral scenarios failed before implementation; 39 model tests and production build now pass. Tests cover deepest landing across multiple blockers, overlapping transit without locking/destruction, no-landing movement/rotation rejection, one-time spend/hold guard, award/cap/reset and all lock policies. Board uses a distinct P cell; pieces color typing adds its white mapping so model integration remains buildable. Active-piece presentation and P input follow in T-013. Phase 3 objects #21–#24/milestones #6/#7 read back before implementation; branch parent c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb is verified v0.2.0 release.
