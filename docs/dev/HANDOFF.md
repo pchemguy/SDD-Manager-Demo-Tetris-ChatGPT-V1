@@ -37,3 +37,7 @@ T-001–T-006 complete. Milestone 1.1 hosted closure verified. Phase report owns
 ## Phase 1 integration
 
 Return to main after completed phase 1. Main parent 1347474; incoming 621821c3825e6abab1cf77da0444f905b1bb859c; original phase opening parent 37c8a35. Both phase milestones and all six issues are closed/read back. T-006 actual commit audit confirms its single checkbox plus report/handoff. Merge has no source conflicts; model/build checks below validate merged state. Publish/read back integration, prepare release marker/tag v0.1.0 and verified assets, then activate phase 2.
+
+## Milestone 2.1 checkpoint
+
+Phase 2 branch parent is published release 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6 on main; phase 1 release and downloaded bytes verified. T-007–T-010 complete with 29 model/eight browser checks passing. Publish review, close issue #19 and milestone #4, then T-011, integrate main and release v0.2.0. Full autonomous scope persists.

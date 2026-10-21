@@ -29,7 +29,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 ## Phase 2 — Modern controls
 
 - [ ] Phase 2 — Modern controls
-    - [ ] Milestone 2.1 — Modern piece handling
+    - [x] Milestone 2.1 — Modern piece handling
         - [x] T-007 — Add seven-bag queue and hold
             Scope: src/game.ts and model tests. Depends on: T-006.
             Evidence: Each bag has all seven types; hold swaps/reset/once-per-lock and blocked spawn; relevant tests, build and documentation.
@@ -39,7 +39,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-009 — Render shared ghost projection and modern controls
             Scope: src/render.ts, src/main.ts and browser/model tests. Depends on: T-008.
             Evidence: Ghost equals hard drop, midline rule and visible hold/help integration; relevant tests, build and documentation.
-        - [ ] T-010 — Review, test and report milestone 2.1
+        - [x] T-010 — Review, test and report milestone 2.1
             Depends on: T-007, T-008, T-009. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/2/2.1.md.
     - [ ] Milestone 2.2 — Phase review
