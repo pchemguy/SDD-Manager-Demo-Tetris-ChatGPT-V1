@@ -1,32 +1,19 @@
 # Project handoff
 
-Checkpoint: main development, DOCS-001 initialization.
-This snapshot describes initialization; recover later progress from DOCS_TASKS and Git.
-
-Outcome: all four existing root guidance/disclosure/discovery files preserved; preparation task list and handoff established. No gameplay implementation exists.
+Checkpoint: complete main documentation preparation, package QC Ready; integration pending.
 
 ## Workflow and sources
 
-- Workflow/stage/owner: main development; documentation preparation; sdd-manage and sdd-design.
-- Governing sources: [AGENTS](../../AGENTS.md), [browser policy](../../BROWSER_DEV_POLICY.md), [DOCS_TASKS](DOCS_TASKS.md), and the user's full project request and accepted clarification on 2026-10-21.
-- Package: repository-provided SDD Manager 0.15.1 at `.agents/plugins/sdd-manager`; Linux execution host with Git, Node and Python available.
+Main development coordinated by sdd-manage; [PROJECT](PROJECT.md), [ARCHITECTURE](ARCHITECTURE.md), [DECOMPOSITION](DECOMPOSITION.md), [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md), [DOCS_TASKS](DOCS_TASKS.md) and [package QC](DOCS-QC-REPORT.md) govern continuation. Use repository SDD Manager 0.15.1 and central root/browser policies. Linux execution host has Node 24, Git and Python 3.12.
 
-## Scope and human decisions
+## Scope and authority
 
-- Objective: browser Tetris with a usable classic baseline followed by bounded increments delivering all requested enhancements and persistence.
-- Accepted technical/gameplay direction is retained in DOCS_TASKS.
-- Next human boundary: published PROJECT proposal acceptance before ARCHITECTURE. No future checkpoints are preapproved.
-- GitHub documentation and implementation tracking enabled by root AGENTS. Standard reporting. Push/read back each owned commit.
+The user approved PROJECT and on 2026-10-21 explicitly preapproved all human checkpoints, authorized fully autonomous delivery of the complete project, and required a GitHub release after each implementation phase. All 19 tasks and four phases are authorized. No further human pause is required within this scope; technical, publication and tracking gates remain mandatory. Standard reporting. Phase releases: 0.1.0, 0.2.0, 0.3.0, 1.0.0.
 
-## Branches and return
+## Branches
 
-- Working branch: `design-docs/main`.
-- Creation parent and integration target: `main`, confirmed repository default.
-- Branch-off commit: `63efa331490700b2b34b8db6a1fefc389c05387e`.
-- Suspended parent: none. No implementation range selected.
+Working branch: design-docs/main. Creation parent/integration target: main. Original branch-off: 63efa331490700b2b34b8db6a1fefc389c05387e. No suspended parent.
 
-## Pending work and next action
+## Next operations
 
-- Preparation milestone and all nine task associations verified before writes.
-- This initialization commit requires push/readback and DOCS-001 issue closure before PROJECT authoring. Reconcile actual Git and hosted state on resume.
-- Next: prepare and publish PROJECT for human review. Whole-package QC and published documentation integration precede milestone closure and implementation.
+Publish this QC completion, close DOCS-009, explicitly merge into main, verify/publish the two-parent result, then close/read back sdd-docs-main. These later effects require confirmation from Git/provider on recovery. Then activate phase 1 only, create phase/1-classic-baseline from published main and execute its six tasks. Later phases activate after predecessor integration and release. Continue through final release unless a concrete blocker or newer user instruction intervenes. No gameplay is implemented at this checkpoint.

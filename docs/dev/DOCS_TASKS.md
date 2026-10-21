@@ -40,7 +40,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-008 — Prepare and accept TASKS.
     - Derive executable tasks, dependencies and required milestone/phase review units from accepted SPEC, PLAN and layout.
     - Complete required task-list QC and its human acceptance checkpoint. Do not start implementation or project implementation-phase objects yet.
-- [ ] DOCS-009 — Pass documentation package QC.
+- [x] DOCS-009 — Pass documentation package QC.
     - Require all preceding tasks complete and their issue closures verified when tracking is enabled.
     - Review the entire document set, necessary children and QC reports for consistency, traceability, delivery readiness and unresolved blockers. Check initialization, orientation, human acceptance and publication evidence.
     - Resolve blockers through their owning documents and recheck affected readiness and acceptance. Retain the package QC report with the preparation documents.
@@ -104,3 +104,7 @@ Layout and combined PLAN review Ready; accepted under autonomous preapproval.
 ## DOCS-008 acceptance
 
 TASKS conformance Ready; 19 tasks accepted under autonomous preapproval. Entire range authorized, retaining phase activation, publication and release gates.
+
+## DOCS-009 completion
+
+Whole-package QC Ready; publication/issue closure, explicit main integration and preparation milestone closure follow. Final human checkpoint and all implementation phases are preapproved.
