@@ -33,6 +33,12 @@ export class Game {
     while (this.valid({ ...target, y: target.y + 1 })) target.y++;
     return target;
   }
+  ghost(mode:'hide'|'dynamic'|'show'='show'):Piece|null {
+    if (mode === 'hide' || this.over) return null;
+    const target = this.landing();
+    if (target && mode === 'dynamic' && this.coordinates(target).some(([,y]) => y < 10)) return null;
+    return target;
+  }
   hardDrop() {
     if (this.paused || this.over) return false;
     const target = this.landing();

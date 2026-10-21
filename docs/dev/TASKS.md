@@ -36,7 +36,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-008 — Implement wall kicks and timed hard drop
             Scope: src/game.ts, src/pieces.ts and model/controller tests. Depends on: T-007.
             Evidence: Ordered kicks, exact grounding timer/reset/pause and hard-drop policies; relevant tests, build and documentation.
-        - [ ] T-009 — Render shared ghost projection and modern controls
+        - [x] T-009 — Render shared ghost projection and modern controls
             Scope: src/render.ts, src/main.ts and browser/model tests. Depends on: T-008.
             Evidence: Ghost equals hard drop, midline rule and visible hold/help integration; relevant tests, build and documentation.
         - [ ] T-010 — Review, test and report milestone 2.1
@@ -118,3 +118,7 @@ Three new behavioral tests failed before implementation; all 16 model tests and 
 ## T-008 evidence
 
 Eight new timing/landing/kick assertions failed before implementation (one chronological-equivalence case already passed). All 25 model tests, build and six browser checks now pass. Delayed locking captures a full interval on grounding, retains grounded residuals, cancels in air, freezes on pause and orders deadlines before coincident gravity. Failed-down and immediate hard-drop policies tested. Classic fixtures explicitly select failed mode. Rotation auto-repeat was reproduced in Chromium then fixed; both browser targets verify it. This corrects a baseline input defect identified during phase 2 preparation.
+
+## T-009 evidence
+
+Four ghost tests and the new browser hold scenario failed before implementation. All 29 model tests, production build and eight browser checks pass. Shared landing equality, above/straddling/exact midline cases, native hold guard and hard-drop raster are covered. Screenshot confirms outlined ghost and separate held/next previews. Visibility mode selection UI remains T-016; all three projection modes are modeled now.

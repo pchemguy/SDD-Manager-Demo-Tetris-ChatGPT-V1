@@ -24,3 +24,8 @@ test('rotation ignores auto-repeat',async({page})=>{
  await page.addInitScript(()=>{Math.random=()=>0.5});await page.goto('/');const board=page.getByRole('application',{name:'Tetris board'});await board.focus();
  const before=await board.evaluate((e:HTMLCanvasElement)=>e.toDataURL());await board.dispatchEvent('keydown',{key:'ArrowUp',repeat:true});expect(await board.evaluate((e:HTMLCanvasElement)=>e.toDataURL())).toBe(before);
 });
+test('hold and hard drop are keyboard playable',async({page})=>{
+ await page.goto('/');const board=page.getByRole('application',{name:'Tetris board'});await board.focus();await page.keyboard.press('c');await expect(page.getByTestId('held-name')).not.toHaveText('Empty');
+ const held=await page.getByTestId('held-name').textContent();await page.keyboard.press('c');await expect(page.getByTestId('held-name')).toHaveText(held!);
+ await page.keyboard.press('Enter');const bottom=await board.evaluate((e:HTMLCanvasElement)=>{const d=e.getContext('2d')!.getImageData(0,500,300,100).data;let n=0;for(let i=0;i<d.length;i+=4)if(d[i]+d[i+1]+d[i+2]>350)n++;return n});expect(bottom).toBeGreaterThan(1000);
+});

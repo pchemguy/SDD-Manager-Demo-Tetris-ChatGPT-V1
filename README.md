@@ -18,4 +18,4 @@ On a host diagnosed with Firefox content-process `uid_map: EPERM`, trusted local
 
 Run `npm run build` then `npm run package`. The archive and SHA-256 file are in `artifacts/`. Extract `tetris.zip` and follow its `SERVING.md`, or host its contents on an HTTP static server. Assets use relative paths; `file://` is unsupported. Source checks: `npm test`, `npm run build`, and `npm run test:browser`.
 
-Classic scoring is 100/300/500/800 × current level for 1/2/3/4 lines. Every ten lines raises the level and gravity speed. Pieces lock on a failed downward attempt in this baseline. Mobile touch controls are outside scope.
+Classic scoring is 100/300/500/800 × current level for 1/2/3/4 lines. Every ten lines raises the level and gravity speed. Pieces use a shuffled seven-bag queue, simple wall kicks and a full gravity interval of lock delay. Enter hard-drops, C holds once per piece, and an outlined ghost previews the landing. Moving while grounded does not reset lock delay; becoming airborne does. Mobile touch controls are outside scope.
