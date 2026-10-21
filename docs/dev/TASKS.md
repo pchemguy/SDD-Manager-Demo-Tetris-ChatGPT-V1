@@ -9,7 +9,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-001 — Establish isolated tooling and piece geometry
             Scope: package/configuration, src/pieces.ts, tests/pieces.test.ts; central browser policy provisioning. Depends on: none.
             Evidence: Seven distinct four-cell types, rotations and board-coordinate fixtures; reproducible isolated Chromium/Firefox provisioning; relevant tests, build and documentation.
-        - [ ] T-002 — Implement classic session rules
+        - [x] T-002 — Implement classic session rules
             Scope: src/game.ts and tests/game.test.ts. Depends on: T-001.
             Evidence: Movement/collision, gravity, failed-down locking, line compaction/scoring, level, pause, restart and game over; relevant tests, build and documentation.
         - [ ] T-003 — Build the playable browser interface
@@ -98,3 +98,7 @@ Do not mark this task complete or begin T-002 until compliant isolated Chromium/
 Recovered on 2026-10-21 under updated browser policy. Pinned Playwright 1.56.1; official image `mcr.microsoft.com/playwright:v1.56.1-noble`, linux/amd64 manifest `sha256:42f02d323c310069b4d54c94bd91a608966a486c3492c48ae0b1cea747ec5ca2`. Manifest/config sizes and SHA-256 verified. Config history locates the sole browser-creating layer; layer size 786741920 and SHA-256 `44acc34a5cf7569816f1cbd047c04ba06ad8face9b0707ca096e78a7d1b856f3` verified before extraction. Extracted only managed shell 1194, Firefox 1495 and FFmpeg 1011 into the absolute project `.browser` directory. Traversal/special entries rejected; selected entries were regular files/directories, no links or whiteouts; executable modes preserved. No later layers modify them. Host executable dependencies resolve.
 
 Independent Firefox GET diagnostics also returned 195-byte HTML (200 text/html), official fallback 503. Chromium 141.0.7390.37 headless shell passed two isolated context/page/click/Canvas-pixel/screenshot/teardown cycles. Firefox 142.0.1 initially stalled creating a page with `uid_map: EPERM`; 30-second whole-process timeout closed the browser and cleaned its profile. Process-local `MOZ_DISABLE_CONTENT_SANDBOX=1` then passed both cycles and clean exit. Config gates this trusted-local-only workaround behind `TETRIS_FIREFOX_SANDBOX=1`. Browser logs contain nonfatal graphics/service warnings; application acceptance is reserved for T-003/T-004. No global browser/security setting changed. Geometry RED/GREEN evidence above remains valid; final three model tests and TypeScript check passed. Full Vite build awaits T-003 entry point.
+
+## T-002 evidence
+
+Observed seven behavior failures against inert model methods before implementation. Final 13 tests pass, including all clear counts, pre-clear scoring, bounds/collisions, rotation, chronological gravity, pause/restart and blocked spawn. TypeScript check passes. Corrected a rotation fixture to y=17 so its intended intermediate pose fits the board. Model owns no DOM/time source; optional RNG enables deterministic scenarios. Browser integration remains T-003.
