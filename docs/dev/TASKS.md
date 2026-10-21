@@ -54,7 +54,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-012 — Implement penetrator resources and transit
             Scope: src/game.ts and model tests. Depends on: T-011.
             Evidence: Four-line award/cap, single consumption, hold restriction, lowest valid landing and no overlap lock; relevant tests, build and documentation.
-        - [ ] T-013 — Integrate penetrator presentation and controls
+        - [x] T-013 — Integrate penetrator presentation and controls
             Scope: src/render.ts, src/main.ts, README and browser tests. Depends on: T-012.
             Evidence: White active/locked cells, bonus symbols and P activation with projection/hard drop integration; relevant tests, build and documentation.
         - [ ] T-014 — Review, test and report milestone 3.1
@@ -126,3 +126,7 @@ Four ghost tests and the new browser hold scenario failed before implementation.
 ## T-012 evidence
 
 Four new behavioral scenarios failed before implementation; 39 model tests and production build now pass. Tests cover deepest landing across multiple blockers, overlapping transit without locking/destruction, no-landing movement/rotation rejection, one-time spend/hold guard, award/cap/reset and all lock policies. Board uses a distinct P cell; pieces color typing adds its white mapping so model integration remains buildable. Active-piece presentation and P input follow in T-013. Phase 3 objects #21–#24/milestones #6/#7 read back before implementation; branch parent c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb is verified v0.2.0 release.
+
+## T-013 evidence
+
+Both new controller integration scenarios failed on the missing bonus display before implementation; existing eight browser checks passed after the behavior-preserving mount extraction. Final 39 model tests, build and ten browser scenarios pass. A development-only deterministic fixture uses the real mount/controller to earn a four-line bonus, spend with native P, reject hold, and verify pure-white active/locked Canvas pixels and symbol updates. Production build has no fixture/debug hook; eight public-page scenarios remain separately runnable on packaged assets. UI spacing tightened for the added bonus panel; README documents gameplay and evidence distinction.

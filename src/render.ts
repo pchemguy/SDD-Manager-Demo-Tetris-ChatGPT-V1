@@ -10,8 +10,8 @@ export function render(game:Game,canvas:HTMLCanvasElement,ghostMode:'hide'|'dyna
  const block=(x:number,y:number,color:string)=>{c.fillStyle=color;c.fillRect(x*size+2,y*size+2,size-4,size-4);c.fillStyle='#ffffff30';c.fillRect(x*size+2,y*size+2,size-4,3)};
  game.board.forEach((row,y)=>row.forEach((kind,x)=>{if(kind)block(x,y,colors[kind])}));
  const ghost=game.ghost(ghostMode);
- if(ghost){c.strokeStyle=colors[ghost.kind];c.globalAlpha=0.45;c.lineWidth=2;for(const [x,y] of game.coordinates(ghost))c.strokeRect(x*size+3,y*size+3,size-6,size-6);c.globalAlpha=1}
- if(!game.over)game.coordinates().forEach(([x,y])=>block(x,y,colors[game.active.kind]));
+ if(ghost){c.strokeStyle=game.penetrator?colors.P:colors[ghost.kind];c.globalAlpha=0.45;c.lineWidth=2;for(const [x,y] of game.coordinates(ghost))c.strokeRect(x*size+3,y*size+3,size-6,size-6);c.globalAlpha=1}
+ if(!game.over)game.coordinates().forEach(([x,y])=>block(x,y,game.penetrator?colors.P:colors[game.active.kind]));
  if(game.paused||game.over){c.fillStyle='#07101bdd';c.fillRect(0,0,canvas.width,canvas.height);c.textAlign='center';c.fillStyle='#eef4ff';c.font='600 24px system-ui';c.fillText(game.over?'Game over':'Paused',canvas.width/2,canvas.height/2);c.font='14px system-ui';c.fillText(game.over?'Press R to play again':'Escape to resume',canvas.width/2,canvas.height/2+30)}
 }
 export function preview(kind:Kind|null,canvas:HTMLCanvasElement){
