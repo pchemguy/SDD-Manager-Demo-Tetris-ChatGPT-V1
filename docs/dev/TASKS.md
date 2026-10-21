@@ -50,14 +50,14 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 ## Phase 3 — Penetrator bonuses
 
 - [ ] Phase 3 — Penetrator bonuses
-    - [ ] Milestone 3.1 — Penetrating pieces
+    - [x] Milestone 3.1 — Penetrating pieces
         - [x] T-012 — Implement penetrator resources and transit
             Scope: src/game.ts and model tests. Depends on: T-011.
             Evidence: Four-line award/cap, single consumption, hold restriction, lowest valid landing and no overlap lock; relevant tests, build and documentation.
         - [x] T-013 — Integrate penetrator presentation and controls
             Scope: src/render.ts, src/main.ts, README and browser tests. Depends on: T-012.
             Evidence: White active/locked cells, bonus symbols and P activation with projection/hard drop integration; relevant tests, build and documentation.
-        - [ ] T-014 — Review, test and report milestone 3.1
+        - [x] T-014 — Review, test and report milestone 3.1
             Depends on: T-012, T-013. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/3/3.1.md.
     - [ ] Milestone 3.2 — Phase review

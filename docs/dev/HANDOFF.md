@@ -49,3 +49,7 @@ T-007–T-011 complete; milestone #4 closed/read back. Publish review, close iss
 ## Phase 2 integration
 
 Return to main from phase/2-modern-controls. Receiving parent 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6; incoming 3aa94dfc89708d061743c026bca2cce27caa7a25. Task persistence audit and both milestone closures verified. No source conflict; handoff reconciled. Publish integration, create the planned version release with verified assets, then activate the successor phase if any. Autonomous full scope remains active.
+
+## Milestone 3.1 checkpoint
+
+Phase 3 creation parent c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb (verified v0.2.0). T-012–T-014 complete; publish review and reconcile issue #23/milestone #6, then T-015, integration and release v0.3.0. All implementation authority persists.
