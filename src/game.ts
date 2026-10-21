@@ -7,6 +7,17 @@ export class Game {
   board = emptyBoard();
   active!: Piece;
   next!: Kind;
+  held: Kind | null = null;
+  holdUsed = false;
+  private bag: Kind[] = [];
+  hold() {
+    if (this.paused || this.over || this.holdUsed) return false;
+    const previous = this.held;
+    this.held = this.active.kind;
+    this.spawn(previous ?? undefined);
+    this.holdUsed = true;
+    return true;
+  }
   score = 0;
   lines = 0;
   paused = false;
@@ -15,16 +26,25 @@ export class Game {
   constructor(private random: () => number = Math.random) { this.restart(); }
   get level() { return 1 + Math.floor(this.lines / 10); }
   get interval() { return Math.max(100, 1000 - 75 * (this.level - 1)); }
-  private draw(): Kind { return kinds[Math.floor(this.random() * kinds.length)]; }
+  private draw(): Kind {
+    if (!this.bag.length) {
+      this.bag = [...kinds];
+      for (let i = this.bag.length - 1; i > 0; i--) {
+        const j = Math.floor(this.random() * (i + 1));
+        [this.bag[i], this.bag[j]] = [this.bag[j], this.bag[i]];
+      }
+    }
+    return this.bag.shift()!;
+  }
   coordinates(piece = this.active): [number, number][] {
     return cells(piece.kind, piece.rotation).map(([x, y]) => [x + piece.x, y + piece.y]);
   }
   valid(piece: Piece): boolean {
     return this.coordinates(piece).every(([x, y]) => x >= 0 && x < 10 && y >= 0 && y < 20 && !this.board[y][x]);
   }
-  private spawn() {
-    this.active = { kind: this.next, rotation: 0, x: 3, y: 0 };
-    this.next = this.draw();
+  private spawn(kind?: Kind) {
+    this.active = { kind: kind ?? this.next, rotation: 0, x: 3, y: 0 };
+    if (!kind) this.next = this.draw();
     this.elapsed = 0;
     this.over = !this.valid(this.active);
   }
@@ -48,6 +68,7 @@ export class Game {
     this.score += [0, 100, 300, 500, 800][cleared] * this.level;
     this.lines += cleared;
     this.board = [...Array.from({ length: cleared }, () => Array(10).fill(null)), ...remaining];
+    this.holdUsed = false;
     this.spawn();
   }
   /** Consume chronological gravity events; pausing preserves the fractional interval. */
@@ -62,6 +83,7 @@ export class Game {
   pause() { if (!this.over) this.paused = !this.paused; }
   restart() {
     this.board = emptyBoard(); this.score = 0; this.lines = 0; this.paused = false; this.over = false;
+    this.bag = []; this.held = null; this.holdUsed = false;
     this.next = this.draw(); this.spawn();
   }
 }

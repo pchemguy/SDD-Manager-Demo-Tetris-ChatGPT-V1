@@ -30,7 +30,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 - [ ] Phase 2 — Modern controls
     - [ ] Milestone 2.1 — Modern piece handling
-        - [ ] T-007 — Add seven-bag queue and hold
+        - [x] T-007 — Add seven-bag queue and hold
             Scope: src/game.ts and model tests. Depends on: T-006.
             Evidence: Each bag has all seven types; hold swaps/reset/once-per-lock and blocked spawn; relevant tests, build and documentation.
         - [ ] T-008 — Implement wall kicks and timed hard drop
@@ -110,3 +110,7 @@ Both browser scenarios failed on the empty interface before implementation. Both
 ## T-004 evidence
 
 13 model tests, production build and four production-archive browser scenarios pass. ZIP integrity/inventory verified: index, relative JS/CSS, LICENSE, VERSION.json and SERVING.md only; SHA-256 generated. Extracted archive was served with Python and exercised in Chromium/Firefox. Native keyboard/focus and Canvas pixels verified; hidden-page handler tested with modeled visibility events, not a headed OS-window experiment. Browser policy defaults permit headless coverage. Only nonfunctional missing favicon requests and environment npm/color warnings observed. No secrets, dependencies, browser files or source enter the whitelist.
+
+## T-007 evidence
+
+Three new behavioral tests failed before implementation; all 16 model tests and production build now pass. Verified three successive bags, hold guard/retrieval/reset and blocked hold-spawn. Existing classic fixtures now explicitly select their I-piece pose rather than depending on independent random selection. Phase 2 tracking issues #16–#20 and milestones #4/#5 were individually read back after a stale collection response. Phase branch was created from release commit 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6; v0.1.0 publication and both downloaded asset hashes were verified before activation.

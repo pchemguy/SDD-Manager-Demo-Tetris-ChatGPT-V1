@@ -1,7 +1,7 @@
 import {describe,it,expect} from 'vitest';
 import {Game} from '../src/game';
 import {cells} from '../src/pieces';
-const game=()=>new Game(()=>0);
+const game=()=>{const g=new Game(()=>0);g.active.kind='I';g.next='I';return g};
 describe('classic session',()=>{
  it('moves within bounds and respects occupied cells',()=>{const g=game();expect(g.move(-1)).toBe(true);for(let i=0;i<20;i++)g.move(-1);expect(g.active.x).toBe(0);g.board[1][4]='O';expect(g.move(1)).toBe(false)});
  it('rotates clockwise only when valid',()=>{const g=game();expect(g.rotate()).toBe(true);expect(g.active.rotation).toBe(1);g.active.y=17;expect(g.rotate()).toBe(true);expect(g.rotate()).toBe(false)});
