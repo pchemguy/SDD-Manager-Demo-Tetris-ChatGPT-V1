@@ -28,7 +28,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 2 — Modern controls
 
-- [ ] Phase 2 — Modern controls
+- [x] Phase 2 — Modern controls
     - [x] Milestone 2.1 — Modern piece handling
         - [x] T-007 — Add seven-bag queue and hold
             Scope: src/game.ts and model tests. Depends on: T-006.
@@ -42,8 +42,8 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-010 — Review, test and report milestone 2.1
             Depends on: T-007, T-008, T-009. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/2/2.1.md.
-    - [ ] Milestone 2.2 — Phase review
-        - [ ] T-011 — Review, test and report phase 2
+    - [x] Milestone 2.2 — Phase review
+        - [x] T-011 — Review, test and report phase 2
             Depends on: T-010 and milestone 2.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/2/PHASE-REPORT.md.
 

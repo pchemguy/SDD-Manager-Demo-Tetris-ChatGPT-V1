@@ -41,3 +41,7 @@ Return to main after completed phase 1. Main parent 1347474; incoming 621821c382
 ## Milestone 2.1 checkpoint
 
 Phase 2 branch parent is published release 18fcdc5ad56b5ab340c5e565cd40b0343d0daae6 on main; phase 1 release and downloaded bytes verified. T-007–T-010 complete with 29 model/eight browser checks passing. Publish review, close issue #19 and milestone #4, then T-011, integrate main and release v0.2.0. Full autonomous scope persists.
+
+## Phase 2 review checkpoint
+
+T-007–T-011 complete; milestone #4 closed/read back. Publish review, close issue #20/milestone #5, audit T-011 and integrate main. Release v0.2.0 requires dedicated version commit and rebuilt metadata. Then activate phase 3. Original phase parent remains 18fcdc5; autonomous whole-project authority persists.
