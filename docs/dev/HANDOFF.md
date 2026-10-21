@@ -61,3 +61,7 @@ T-012–T-015 complete. Milestone #6 closed/read back; publish review and close 
 ## Phase 3 integration
 
 Return to main from phase/3-penetrator-bonuses. Receiving parent c7a9afc2f6236475bac71a3a9bc8541a3e5ecfbb; incoming a3ed5055927125cb769b48db8851c642ec8894ca. Task persistence audit and both milestone closures verified. No source conflict; handoff reconciled. Publish integration, create the planned version release with verified assets, then activate the successor phase if any. Autonomous full scope remains active.
+
+## Milestone 4.1 checkpoint
+
+T-016–T-018 complete on phase/4-configurable-persistent-rules, created from f358c1efe28725de92eabdfb0cc60f87b5ae9dd3 (v0.3.0 release and downloaded hashes verified). All requested behavior is implemented. 52 model/settings and 20 development-browser checks pass. Publish review, close issue #27/milestone #8, then T-019 final package/report/audit, integrate main and release v1.0.0. Full autonomous authority remains active.

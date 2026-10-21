@@ -68,14 +68,14 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 ## Phase 4 — Configurable persistent rules
 
 - [ ] Phase 4 — Configurable persistent rules
-    - [ ] Milestone 4.1 — Settings and persistence
+    - [x] Milestone 4.1 — Settings and persistence
         - [x] T-016 — Add six session configuration controls
             Scope: src/settings.ts, src/main.ts, src/render.ts, tests/settings.test.ts and browser tests. Depends on: T-015.
             Evidence: All six choices, defaults, live controls, next-piece lock snapshots and form focus; relevant tests, build and documentation.
         - [x] T-017 — Persist independent settings through cookies and URL
             Scope: src/settings.ts, browser/settings tests and README. Depends on: T-016.
             Evidence: Mixed-source precedence, invalid/duplicate inputs, default-valued URL writes, retained omissions, updates/reload and storage failure warning; relevant tests, build and documentation.
-        - [ ] T-018 — Review, test and report milestone 4.1
+        - [x] T-018 — Review, test and report milestone 4.1
             Depends on: T-016, T-017. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/4/4.1.md.
     - [ ] Milestone 4.2 — Phase review
