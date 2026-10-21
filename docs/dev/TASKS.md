@@ -49,7 +49,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 3 — Penetrator bonuses
 
-- [ ] Phase 3 — Penetrator bonuses
+- [x] Phase 3 — Penetrator bonuses
     - [x] Milestone 3.1 — Penetrating pieces
         - [x] T-012 — Implement penetrator resources and transit
             Scope: src/game.ts and model tests. Depends on: T-011.
@@ -60,8 +60,8 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-014 — Review, test and report milestone 3.1
             Depends on: T-012, T-013. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/3/3.1.md.
-    - [ ] Milestone 3.2 — Phase review
-        - [ ] T-015 — Review, test and report phase 3
+    - [x] Milestone 3.2 — Phase review
+        - [x] T-015 — Review, test and report phase 3
             Depends on: T-014 and milestone 3.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/3/PHASE-REPORT.md.
 

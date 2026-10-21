@@ -1,6 +1,6 @@
 # Browser Tetris
 
-A TypeScript browser game with a classic playable baseline and planned modern controls, penetrator bonuses, and configurable rules with URL/cookie persistence.
+A TypeScript browser Tetris game with modern controls and penetrator bonuses. Configurable rules and URL/cookie persistence are the remaining delivery phase.
 
 The classic baseline is playable. Run `npm run dev`, open the printed local URL and click the board. Arrow keys move/rotate/soft-drop; Space rotates, Esc pauses and R restarts. See the [project brief](docs/dev/PROJECT.md), [preparation tasks](docs/dev/DOCS_TASKS.md), and [workflow handoff](docs/dev/HANDOFF.md).
 
