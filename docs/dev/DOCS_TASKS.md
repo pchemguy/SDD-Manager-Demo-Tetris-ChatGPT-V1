@@ -25,7 +25,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-003 — Prepare and accept ARCHITECTURE.
     - Define major system blocks, relationships, dependency direction and consequential structural decisions from the accepted brief.
     - Review the proposal with the human and complete its acceptance checkpoint.
-- [ ] DOCS-004 — Prepare and accept DECOMPOSITION.
+- [x] DOCS-004 — Prepare and accept DECOMPOSITION.
     - Define component responsibilities, collaboration, ownership and design-level interface boundaries consistently with ARCHITECTURE.
     - Review the proposal with the human and complete its acceptance checkpoint.
 - [ ] DOCS-005 — Prepare and accept SPEC.
@@ -84,3 +84,7 @@ Release policy selected within this authority: v0.1.0 for the classic baseline, 
 ## DOCS-003 review and acceptance
 
 ARCHITECTURE.md reviewed against its accepted predecessors: ownership, dependency direction, state lifecycle and verification seams are coherent; no blocking findings. Accepted under the user’s explicit autonomous checkpoint preapproval of 2026-10-21.
+
+## DOCS-004 review and acceptance
+
+DECOMPOSITION.md reviewed against its accepted predecessors: ownership, dependency direction, state lifecycle and verification seams are coherent; no blocking findings. Accepted under the user’s explicit autonomous checkpoint preapproval of 2026-10-21.
