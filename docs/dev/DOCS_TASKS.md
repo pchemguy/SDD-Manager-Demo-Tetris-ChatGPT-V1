@@ -22,7 +22,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-002 — Prepare and accept PROJECT.
     - Establish the project brief: purpose, users, outcomes, scope, non-goals and consequential constraints; identify material assumptions and unresolved decisions.
     - Review the proposal with the human and complete its acceptance checkpoint.
-- [ ] DOCS-003 — Prepare and accept ARCHITECTURE.
+- [x] DOCS-003 — Prepare and accept ARCHITECTURE.
     - Define major system blocks, relationships, dependency direction and consequential structural decisions from the accepted brief.
     - Review the proposal with the human and complete its acceptance checkpoint.
 - [ ] DOCS-004 — Prepare and accept DECOMPOSITION.
@@ -80,3 +80,7 @@ PROJECT proposal: reviewed against the complete user request and accepted clarif
 On 2026-10-21 the user approved PROJECT at `93e4bc851a77a853b856b448ee2aeebcede210a8`, preapproved all future human checkpoints, and requested fully autonomous development of the complete project scope. All implementation phases are authorized, including their verification, integration and GitHub releases after each completed phase with appropriately increased versions. This supersedes earlier human-pause instructions; QC, task atomicity, publication and tracking gates remain mandatory. The accepted PROJECT bytes are retained unchanged in this approval commit. Mobile touch exclusion is accepted with the brief.
 
 Release policy selected within this authority: v0.1.0 for the classic baseline, successive minor versions for useful intermediate capabilities, and v1.0.0 when the complete specified product passes acceptance. Patch increments are reserved for corrective releases. Each phase release follows verified integration and includes release notes and a distributable static build.
+
+## DOCS-003 review and acceptance
+
+ARCHITECTURE.md reviewed against its accepted predecessors: ownership, dependency direction, state lifecycle and verification seams are coherent; no blocking findings. Accepted under the user’s explicit autonomous checkpoint preapproval of 2026-10-21.
