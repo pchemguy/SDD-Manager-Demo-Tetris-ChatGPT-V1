@@ -19,7 +19,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
     - Record which root files existed and which were copied; verify copied bytes and preserved content.
     - Establish/reconcile `docs/dev/HANDOFF.md` as generated checkpoint metadata, outside the four-file presence/copy test. Include it with this task's completion and initialization result, push and verify; then close and verify its issue when tracking is enabled.
     - Report initialization. If some but not all of the four root files existed initially, warn with the retained/copied filenames and end the turn before document work, unless the user explicitly preapproved continuation through this checkpoint. If none or all existed, continue without an additional approval pause.
-- [ ] DOCS-002 — Prepare and accept PROJECT.
+- [x] DOCS-002 — Prepare and accept PROJECT.
     - Establish the project brief: purpose, users, outcomes, scope, non-goals and consequential constraints; identify material assumptions and unresolved decisions.
     - Review the proposal with the human and complete its acceptance checkpoint.
 - [ ] DOCS-003 — Prepare and accept ARCHITECTURE.
@@ -74,3 +74,9 @@ The complete user scope includes the classic baseline, all modern enhancements, 
 DOCS-001 completion and issue #1 closure were verified before PROJECT authoring. Initialization was published in `1e87558358959c3b00dba3642b19352476481a63`; `f65d1c0e769dd9c3584a84371c8dcea72185899b` restores the two pre-existing ignore rules while retaining credential exclusion. Both commits have verified remote readback.
 
 PROJECT proposal: reviewed against the complete user request and accepted clarification. The brief covers the classic baseline, modern controls, penetrator award/cap/activation/rendering/landing, all six configuration options, and independent cookie/URL precedence and synchronization. It retains accepted gameplay constraints and identifies exact behavioral details for later design and SPEC. Root README describes preparation status and links the project, workflow, disclosure and usage records. Mobile touch is a proposed exclusion for acceptance with this brief. No blocking scope inconsistency was found. DOCS-002 remains unchecked and issue #2 remains open pending first human approval; ARCHITECTURE must wait.
+
+## Autonomous authorization
+
+On 2026-10-21 the user approved PROJECT at `93e4bc851a77a853b856b448ee2aeebcede210a8`, preapproved all future human checkpoints, and requested fully autonomous development of the complete project scope. All implementation phases are authorized, including their verification, integration and GitHub releases after each completed phase with appropriately increased versions. This supersedes earlier human-pause instructions; QC, task atomicity, publication and tracking gates remain mandatory. The accepted PROJECT bytes are retained unchanged in this approval commit. Mobile touch exclusion is accepted with the brief.
+
+Release policy selected within this authority: v0.1.0 for the classic baseline, successive minor versions for useful intermediate capabilities, and v1.0.0 when the complete specified product passes acceptance. Patch increments are reserved for corrective releases. Each phase release follows verified integration and includes release notes and a distributable static build.
