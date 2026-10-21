@@ -67,7 +67,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 4 — Configurable persistent rules
 
-- [ ] Phase 4 — Configurable persistent rules
+- [x] Phase 4 — Configurable persistent rules
     - [x] Milestone 4.1 — Settings and persistence
         - [x] T-016 — Add six session configuration controls
             Scope: src/settings.ts, src/main.ts, src/render.ts, tests/settings.test.ts and browser tests. Depends on: T-015.
@@ -78,8 +78,8 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-018 — Review, test and report milestone 4.1
             Depends on: T-016, T-017. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/4/4.1.md.
-    - [ ] Milestone 4.2 — Phase review
-        - [ ] T-019 — Review, test and report phase 4
+    - [x] Milestone 4.2 — Phase review
+        - [x] T-019 — Review, test and report phase 4
             Depends on: T-018 and milestone 4.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/4/PHASE-REPORT.md. Include docs/dev/reports/IMPLEMENTATION-REPORT.md with final TODO aggregation.
 

@@ -65,3 +65,7 @@ Return to main from phase/3-penetrator-bonuses. Receiving parent c7a9afc2f623647
 ## Milestone 4.1 checkpoint
 
 T-016–T-018 complete on phase/4-configurable-persistent-rules, created from f358c1efe28725de92eabdfb0cc60f87b5ae9dd3 (v0.3.0 release and downloaded hashes verified). All requested behavior is implemented. 52 model/settings and 20 development-browser checks pass. Publish review, close issue #27/milestone #8, then T-019 final package/report/audit, integrate main and release v1.0.0. Full autonomous authority remains active.
+
+## Final implementation review checkpoint
+
+All T-001–T-019 and four phases are complete. Final reports record 52 model/settings tests, 20 development browser checks and 18 production-package checks. Milestone #8 is closed/read back. Publish T-019, close #28/#9, audit the actual closing commit, integrate main, then create/read back v1.0.0 and assets. No implementation task remains; release effects are pending at this checkpoint.
