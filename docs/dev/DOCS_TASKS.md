@@ -28,7 +28,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-004 — Prepare and accept DECOMPOSITION.
     - Define component responsibilities, collaboration, ownership and design-level interface boundaries consistently with ARCHITECTURE.
     - Review the proposal with the human and complete its acceptance checkpoint.
-- [ ] DOCS-005 — Prepare and accept SPEC.
+- [x] DOCS-005 — Prepare and accept SPEC.
     - Specify observable behavior, interfaces, error contracts, required qualities and acceptance conditions from the accepted design.
     - Complete required SPEC QC and its human acceptance checkpoint.
 - [ ] DOCS-006 — Prepare and accept PLAN.
@@ -88,3 +88,7 @@ ARCHITECTURE.md reviewed against its accepted predecessors: ownership, dependenc
 ## DOCS-004 review and acceptance
 
 DECOMPOSITION.md reviewed against its accepted predecessors: ownership, dependency direction, state lifecycle and verification seams are coherent; no blocking findings. Accepted under the user’s explicit autonomous checkpoint preapproval of 2026-10-21.
+
+## DOCS-005 acceptance
+
+SPEC and its adjacent review are Ready; accepted under autonomous preapproval. Exact contracts cover S1–S6. No implementation acceptance is claimed.
