@@ -31,7 +31,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-005 — Prepare and accept SPEC.
     - Specify observable behavior, interfaces, error contracts, required qualities and acceptance conditions from the accepted design.
     - Complete required SPEC QC and its human acceptance checkpoint.
-- [ ] DOCS-006 — Prepare and accept PLAN.
+- [x] DOCS-006 — Prepare and accept PLAN.
     - Define delivery phases, milestones, dependencies and exit conditions against SPEC.
     - Complete PLAN QC, then present PLAN for human approval.
 - [ ] DOCS-007 — Prepare and accept layout.
@@ -92,3 +92,7 @@ DECOMPOSITION.md reviewed against its accepted predecessors: ownership, dependen
 ## DOCS-005 acceptance
 
 SPEC and its adjacent review are Ready; accepted under autonomous preapproval. Exact contracts cover S1–S6. No implementation acceptance is claimed.
+
+## DOCS-006 acceptance
+
+PLAN strategy QC Ready; accepted under autonomous preapproval. Four usable phases and phase-end releases are covered. Layout remains the next owner gate.
