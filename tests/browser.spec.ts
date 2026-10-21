@@ -12,3 +12,11 @@ test('keyboard play, pause, restart and visible canvas',async({page})=>{
  const colored=await board.evaluate((e:HTMLCanvasElement)=>{const d=e.getContext('2d')!.getImageData(0,0,e.width,e.height).data;let n=0;for(let i=0;i<d.length;i+=4)if(d[i]+d[i+1]+d[i+2]>350)n++;return n});expect(colored).toBeGreaterThan(1000);
  await page.screenshot({path:test.info().outputPath('game.png')});
 });
+test('controls stay scoped and hidden-page handler pauses',async({page})=>{
+ await page.goto('/');const board=page.getByRole('application',{name:'Tetris board'});
+ await page.getByRole('button',{name:'Pause',exact:true}).focus();await page.keyboard.press('Escape');await expect(page.getByTestId('status')).toHaveText('Playing');
+ await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'))});
+ await expect(page.getByTestId('status')).toHaveText('Paused');
+ await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'))});
+ await expect(page.getByTestId('status')).toHaveText('Paused');await board.focus();await page.keyboard.press('Escape');await expect(page.getByTestId('status')).toHaveText('Playing');
+});

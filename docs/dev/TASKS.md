@@ -15,7 +15,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-003 — Build the playable browser interface
             Scope: index.html, src/main.ts, src/render.ts, src/style.css and browser tests. Depends on: T-002.
             Evidence: Native keyboard play, Canvas output, preview/status, focus, pause/restart and 1280×800 layout; relevant tests, build and documentation.
-        - [ ] T-004 — Verify browser delivery and static packaging
+        - [x] T-004 — Verify browser delivery and static packaging
             Scope: tests/browser.spec.ts, scripts/package.py, README, AGENTS and build configuration. Depends on: T-003.
             Evidence: Both browser targets, production build, archive inventory/checksum and actual serving guide; relevant tests, build and documentation.
         - [ ] T-005 — Review, test and report milestone 1.1
@@ -106,3 +106,7 @@ Observed seven behavior failures against inert model methods before implementati
 ## T-003 evidence
 
 Both browser scenarios failed on the empty interface before implementation. Both now pass native focused keyboard movement, pause stability, restart/focus, rendered Canvas pixels and 1280×800 overflow checks through the actual Vite server. Production build passes. Screenshot inspection confirms readable controls, visible colored cells and board/sidebar layout. Visibility handler pauses on hiding; native hidden-tab coverage follows in T-004. No OS-window focus claim.
+
+## T-004 evidence
+
+13 model tests, production build and four production-archive browser scenarios pass. ZIP integrity/inventory verified: index, relative JS/CSS, LICENSE, VERSION.json and SERVING.md only; SHA-256 generated. Extracted archive was served with Python and exercised in Chromium/Firefox. Native keyboard/focus and Canvas pixels verified; hidden-page handler tested with modeled visibility events, not a headed OS-window experiment. Browser policy defaults permit headless coverage. Only nonfunctional missing favicon requests and environment npm/color warnings observed. No secrets, dependencies, browser files or source enter the whitelist.
