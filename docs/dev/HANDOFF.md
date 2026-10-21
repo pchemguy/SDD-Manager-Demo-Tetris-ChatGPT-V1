@@ -29,3 +29,7 @@ Merged origin/main policy update 1347474 into the active phase branch. The phase
 ## Milestone 1.1 checkpoint
 
 T-001–T-005 complete on phase/1-classic-baseline; see milestone report for exact reviewed source and evidence. Browser provisioning is recovered. Publish this review, reconcile issue #14 and milestone #2, then execute T-006, integrate phase 1 and release v0.1.0. All four phases remain autonomously authorized. Original creation parent and incoming policy merge above remain unchanged.
+
+## Phase 1 review checkpoint
+
+T-001–T-006 complete. Milestone 1.1 hosted closure verified. Phase report owns acceptance and task audit. Publish T-006, close/read back issue #15 and milestone #3, integrate into refreshed main, publish/read back merge, and release v0.1.0 before phase 2 activation. No release exists yet at this checkpoint.

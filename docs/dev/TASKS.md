@@ -4,7 +4,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 1 — Classic baseline
 
-- [ ] Phase 1 — Classic baseline
+- [x] Phase 1 — Classic baseline
     - [x] Milestone 1.1 — Playable classic game
         - [x] T-001 — Establish isolated tooling and piece geometry
             Scope: package/configuration, src/pieces.ts, tests/pieces.test.ts; central browser policy provisioning. Depends on: none.
@@ -21,8 +21,8 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-005 — Review, test and report milestone 1.1
             Depends on: T-001, T-002, T-003, T-004. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/1/1.1.md.
-    - [ ] Milestone 1.2 — Phase review
-        - [ ] T-006 — Review, test and report phase 1
+    - [x] Milestone 1.2 — Phase review
+        - [x] T-006 — Review, test and report phase 1
             Depends on: T-005 and milestone 1.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/1/PHASE-REPORT.md.
 
