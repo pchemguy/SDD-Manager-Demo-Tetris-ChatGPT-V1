@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Penetrator integration fixture</title></head><body><script type="module">
+import {Game} from '/src/game.ts';
+import {mount} from '/src/main.ts';
+document.body.innerHTML='<div id="app"></div>';
+const game=new Game(()=>0.3);
+game.board=Array.from({length:20},(_,y)=>Array.from({length:10},(_,x)=>y>=16&&x!==5?'J':null));
+game.active={kind:'I',rotation:1,x:3,y:16};
+mount(game);
+</script></body></html>
