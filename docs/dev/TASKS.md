@@ -67,19 +67,19 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
 
 ## Phase 4 — Configurable persistent rules
 
-- [ ] Phase 4 — Configurable persistent rules
-    - [ ] Milestone 4.1 — Settings and persistence
-        - [ ] T-016 — Add six session configuration controls
+- [x] Phase 4 — Configurable persistent rules
+    - [x] Milestone 4.1 — Settings and persistence
+        - [x] T-016 — Add six session configuration controls
             Scope: src/settings.ts, src/main.ts, src/render.ts, tests/settings.test.ts and browser tests. Depends on: T-015.
             Evidence: All six choices, defaults, live controls, next-piece lock snapshots and form focus; relevant tests, build and documentation.
-        - [ ] T-017 — Persist independent settings through cookies and URL
+        - [x] T-017 — Persist independent settings through cookies and URL
             Scope: src/settings.ts, browser/settings tests and README. Depends on: T-016.
             Evidence: Mixed-source precedence, invalid/duplicate inputs, default-valued URL writes, retained omissions, updates/reload and storage failure warning; relevant tests, build and documentation.
-        - [ ] T-018 — Review, test and report milestone 4.1
+        - [x] T-018 — Review, test and report milestone 4.1
             Depends on: T-016, T-017. Evidence: code review, tests, blocker repairs, TODO disposition and HANDOFF.
             Report: docs/dev/reports/phases/4/4.1.md.
-    - [ ] Milestone 4.2 — Phase review
-        - [ ] T-019 — Review, test and report phase 4
+    - [x] Milestone 4.2 — Phase review
+        - [x] T-019 — Review, test and report phase 4
             Depends on: T-018 and milestone 4.1 verified closure. Evidence: phase exits, code review, regression/build/package checks and HANDOFF.
             Report: docs/dev/reports/phases/4/PHASE-REPORT.md. Include docs/dev/reports/IMPLEMENTATION-REPORT.md with final TODO aggregation.
 
@@ -130,3 +130,11 @@ Four new behavioral scenarios failed before implementation; 39 model tests and p
 ## T-013 evidence
 
 Both new controller integration scenarios failed on the missing bonus display before implementation; existing eight browser checks passed after the behavior-preserving mount extraction. Final 39 model tests, build and ten browser scenarios pass. A development-only deterministic fixture uses the real mount/controller to earn a four-line bonus, spend with native P, reject hold, and verify pure-white active/locked Canvas pixels and symbol updates. Production build has no fixture/debug hook; eight public-page scenarios remain separately runnable on packaged assets. UI spacing tightened for the added bonus panel; README documents gameplay and evidence distinction.
+
+## T-016 evidence
+
+Two session-setting tests and the missing six-control browser assertion failed before implementation. All 43 model/settings tests, build and twelve development browser checks pass. Every allowed setting value validates independently; live hold/drop toggles preserve hold guard/slot; lock policies retain current snapshots and apply at lock, hold-spawn and restart. Both browsers exercise all six controls, hidden preview, disabled gameplay actions, native form focus and desktop width. Screenshot inspected with the complete side panel. Phase 4 tracking #25–#28/milestones #8/#9 verified; branch created from verified v0.3.0 f358c1efe28725de92eabdfb0cc60f87b5ae9dd3. Persistence remains T-017.
+
+## T-017 evidence
+
+Nine persistence scenarios and the browser omitted-cookie case failed before implementation. 52 model/settings tests, build and all eighteen existing development browser checks pass; two additional ghost-raster checks pass, for twenty scenarios total. Both browsers verify explicit-default cookie writes, retained omitted keys, all-six updates, URL/hash preservation, reload, invalid/duplicate fallback and blocked-cookie warning with playable in-memory state. Pure tests cover read/write/history exceptions, silent rejection and HTTPS cookie attributes. README now documents current gameplay, all keys/defaults, precedence, serving and evidence limits. Corrected preview aspect ratio while accommodating the persistence note.
