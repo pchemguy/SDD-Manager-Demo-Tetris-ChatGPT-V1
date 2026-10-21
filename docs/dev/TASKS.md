@@ -12,7 +12,7 @@ Scope: all phases are authorized under the user’s autonomous instruction of 20
         - [x] T-002 — Implement classic session rules
             Scope: src/game.ts and tests/game.test.ts. Depends on: T-001.
             Evidence: Movement/collision, gravity, failed-down locking, line compaction/scoring, level, pause, restart and game over; relevant tests, build and documentation.
-        - [ ] T-003 — Build the playable browser interface
+        - [x] T-003 — Build the playable browser interface
             Scope: index.html, src/main.ts, src/render.ts, src/style.css and browser tests. Depends on: T-002.
             Evidence: Native keyboard play, Canvas output, preview/status, focus, pause/restart and 1280×800 layout; relevant tests, build and documentation.
         - [ ] T-004 — Verify browser delivery and static packaging
@@ -102,3 +102,7 @@ Independent Firefox GET diagnostics also returned 195-byte HTML (200 text/html),
 ## T-002 evidence
 
 Observed seven behavior failures against inert model methods before implementation. Final 13 tests pass, including all clear counts, pre-clear scoring, bounds/collisions, rotation, chronological gravity, pause/restart and blocked spawn. TypeScript check passes. Corrected a rotation fixture to y=17 so its intended intermediate pose fits the board. Model owns no DOM/time source; optional RNG enables deterministic scenarios. Browser integration remains T-003.
+
+## T-003 evidence
+
+Both browser scenarios failed on the empty interface before implementation. Both now pass native focused keyboard movement, pause stability, restart/focus, rendered Canvas pixels and 1280×800 overflow checks through the actual Vite server. Production build passes. Screenshot inspection confirms readable controls, visible colored cells and board/sidebar layout. Visibility handler pauses on hiding; native hidden-tab coverage follows in T-004. No OS-window focus claim.
